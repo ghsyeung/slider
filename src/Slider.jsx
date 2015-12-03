@@ -293,7 +293,7 @@ class Slider extends React.Component {
   render() {
     const {handle, upperBound, lowerBound} = this.state;
     const {className, prefixCls, disabled, dots, included, range, step,
-           marks, max, min, tipTransitionName, tipFormatter, children} = this.props;
+           marks, max, min, tipTransitionName, tipFormatter, children, trackColor} = this.props;
 
     const upperOffset = this.calcOffset(upperBound);
     const lowerOffset = this.calcOffset(lowerBound);
@@ -325,7 +325,7 @@ class Slider extends React.Component {
         {upper}
         {lower}
         <Track className={prefixCls + '-track'} included={isIncluded}
-               offset={lowerOffset} length={upperOffset - lowerOffset}/>
+               offset={lowerOffset} length={upperOffset - lowerOffset} trackColor={trackColor}/>
         <Dots prefixCls={prefixCls} marks={marks} dots={dots} step={step}
               included={isIncluded} lowerBound={lowerBound}
               upperBound={upperBound} max={max} min={min} />
@@ -363,6 +363,7 @@ Slider.propTypes = {
   tipFormatter: React.PropTypes.func,
   dots: React.PropTypes.bool,
   range: React.PropTypes.bool,
+  trackColor: React.PropTypes.string,
 };
 
 Slider.defaultProps = {
